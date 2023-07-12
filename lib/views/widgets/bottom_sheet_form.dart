@@ -1,18 +1,18 @@
 import 'dart:io';
 import 'package:firebase_firestore_deneme/model/profile.dart';
 import 'package:firebase_firestore_deneme/services/my_converter.dart';
-import 'package:firebase_firestore_deneme/views/borrows_list_view_model.dart';
+import 'package:firebase_firestore_deneme/views/view-models/borrows_list_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class BorrowForm extends StatefulWidget {
-  const BorrowForm({super.key});
+class BottomSheetForm extends StatefulWidget {
+  const BottomSheetForm({super.key});
 
   @override
-  State<BorrowForm> createState() => _BorrowFormState();
+  State<BottomSheetForm> createState() => _BottomSheetFormState();
 }
 
-class _BorrowFormState extends State<BorrowForm> {
+class _BottomSheetFormState extends State<BottomSheetForm> {
   File? _image;
   String _photoUrl =
       'https://firebasestorage.googleapis.com/v0/b/library-demo-e9210.appspot.com/o/photos%2Fimages.jpg?alt=media&token=dd718804-436a-4a3c-97a5-4a581818dc7e';

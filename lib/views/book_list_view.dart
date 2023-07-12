@@ -1,22 +1,22 @@
 import 'package:firebase_firestore_deneme/views/add_book_view.dart';
-import 'package:firebase_firestore_deneme/views/books_view_model.dart';
-import 'package:firebase_firestore_deneme/widgets/book_list_widget.dart';
+import 'package:firebase_firestore_deneme/views/view-models/book_list_view_model.dart';
+import 'package:firebase_firestore_deneme/views/widgets/book_list_body.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../model/book.dart';
 
-class BooksView extends StatefulWidget {
-  const BooksView({super.key});
+class BookListView extends StatefulWidget {
+  const BookListView({super.key});
 
   @override
-  State<BooksView> createState() => _BooksViewState();
+  State<BookListView> createState() => _BookListViewState();
 }
 
-class _BooksViewState extends State<BooksView> {
+class _BookListViewState extends State<BookListView> {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<BooksViewModel>(
-      create: (context) => BooksViewModel(),
+    return ChangeNotifierProvider<BookListViewModel>(
+      create: (context) => BookListViewModel(),
       builder: 
       (context, child) => Scaffold(
         backgroundColor: Colors.grey.shade300,
@@ -34,7 +34,7 @@ class _BooksViewState extends State<BooksView> {
           title: const Text('BOOK LIST'),
         ),
         body: StreamBuilder<List<Book>>(
-          stream: context.read<BooksViewModel>().getBookList(),
+          stream: context.read<BookListViewModel>().getBookList(),
           builder: (context, snapshot) {
 
             if (snapshot.hasError) {
@@ -51,7 +51,7 @@ class _BooksViewState extends State<BooksView> {
             else {
               List<Book> books = snapshot.data!;
 
-              return BookListWidget(books: books);
+              return BookListBody(books: books);
             }
           },
         ),

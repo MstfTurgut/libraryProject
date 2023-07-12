@@ -4,8 +4,8 @@ import 'package:firebase_firestore_deneme/services/database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import '../model/book.dart';
-import '../model/profile.dart';
+import '../../model/book.dart';
+import '../../model/profile.dart';
 
 class BorrowsListViewModel extends ChangeNotifier {
   final _database = Database();
@@ -15,8 +15,6 @@ class BorrowsListViewModel extends ChangeNotifier {
   Future<void> updateBookWithProfile({required Book book, required Profile profile}) async {
 
     book.borrows.add(profile);
-
-    print(book.toJson());
 
     await _database.addAndUpdateDocument(
         booksRef: _booksRef, map: book.toJson());

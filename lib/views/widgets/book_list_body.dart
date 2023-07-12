@@ -3,20 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
 
-import '../model/book.dart';
-import '../views/books_view_model.dart';
-import '../views/update_book_view.dart';
+import '../../model/book.dart';
+import '../view-models/book_list_view_model.dart';
+import '../update_book_view.dart';
 
-class BookListWidget extends StatefulWidget {
-  const BookListWidget({super.key, required this.books});
+class BookListBody extends StatefulWidget {
+  const BookListBody({super.key, required this.books});
 
   final List<Book> books;
 
   @override
-  State<BookListWidget> createState() => _BookListWidgetState();
+  State<BookListBody> createState() => _BookListBodyState();
 }
 
-class _BookListWidgetState extends State<BookListWidget> {
+class _BookListBodyState extends State<BookListBody> {
   bool isFiltered = false;
 
   late List<Book> filteredBookList;
@@ -100,7 +100,7 @@ class _BookListWidgetState extends State<BookListWidget> {
                           if (deleteCard!) {
                             if (!mounted) return;
                             await context
-                                .read<BooksViewModel>()
+                                .read<BookListViewModel>()
                                 .deleteBook(finalBookList[index]);
                           }
                         }),
@@ -119,6 +119,7 @@ class _BookListWidgetState extends State<BookListWidget> {
         ),
       ],
     );
+
   }
 
   Future<bool?> _showMyConfirmDialog(String? bookName) async {
@@ -152,4 +153,5 @@ class _BookListWidgetState extends State<BookListWidget> {
       },
     );
   }
+  
 }

@@ -1,5 +1,5 @@
-import 'package:firebase_firestore_deneme/views/borrows_list_view_model.dart';
-import 'package:firebase_firestore_deneme/widgets/borrow_form.dart';
+import 'package:firebase_firestore_deneme/views/view-models/borrows_list_view_model.dart';
+import 'package:firebase_firestore_deneme/views/widgets/bottom_sheet_form.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../model/book.dart';
@@ -65,7 +65,7 @@ class _BorrowsListViewState extends State<BorrowsListView> {
                     isScrollControlled: true,
                     context: context,
                     builder: (context) {
-                      return const BorrowForm();
+                      return const BottomSheetForm();
                     },
                   );
 

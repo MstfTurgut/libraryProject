@@ -1,8 +1,8 @@
 import 'package:firebase_firestore_deneme/services/my_converter.dart';
 import 'package:flutter/material.dart';
 
-import '../model/book.dart';
-import '../services/database.dart';
+import '../../model/book.dart';
+import '../../services/database.dart';
 
 class UpdateBookViewModel extends ChangeNotifier {
 

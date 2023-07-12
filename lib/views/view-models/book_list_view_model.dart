@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-import '../model/book.dart';
-import '../services/database.dart';
+import '../../model/book.dart';
+import '../../services/database.dart';
 
-class BooksViewModel extends ChangeNotifier {
+class BookListViewModel extends ChangeNotifier {
 
   final Database _database = Database();
 
